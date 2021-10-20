@@ -4,16 +4,16 @@ def minim_ultima_cifra(lst, n):
     :param lst:
     :return:
     '''
-    minim = 9999999999999999999999
-    for nr in lst:
-        if nr % 10 == n:
-            if nr < minim:
-                minim = nr
+    minim = None
+    for el in lst:
+        if el % 10 == n:
+            if minim == None or el < minim:
+                minim = el
     return minim
 
 def test_minim_ultima_cifra():
-    assert minim_ultima_cifra([1, 2, 6553, 85434, -453], 3) == -453
-
+    assert minim_ultima_cifra([1, 2, 6553, 85434, 453], 3) == 453
+    assert minim_ultima_cifra([875423, 3, 5432, 2], 2) == 2
 
 
 def lst_nr_negative(lst):
@@ -44,7 +44,7 @@ def lst_int_numbers():
     :return:
     '''
 
-    lst_str = input("Introduceti numerele intregi:").split(" ")
+    lst_str = input("Introduceti numerele intregi: ").split(" ")
     lst_int = []
     for nr in lst_str:
         lst_int.append(int(nr))
@@ -78,8 +78,9 @@ def main():
         elif cmd == '2':
             print (lst_nr_negative(lst))
         elif cmd == '3':
-            n = input ("Introduceti cifra dorita")
-            print (minim_ultima_cifra(lst, n))
+            n = int (input ("Introduceti cifra dorita: "))
+            mini = (minim_ultima_cifra(lst, n))
+            print (mini)
         elif cmd == '4':
             pass
         elif cmd == '5':
