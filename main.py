@@ -1,3 +1,18 @@
+def prim(n):
+    '''
+    Returneaza True daca numarul este prim, iar Flase in caz contrar
+    :return:
+    '''
+    for i in range(2, n // 2):
+        if n % i == 0:
+            return False
+    return True
+
+def test_prim():
+    assert prim(7) == True
+    assert prim(82) == False
+
+
 def minim_ultima_cifra(lst, n):
     '''
     Returneaza numarul cel mai mic din lista initiala care are ultima cifra egala cu un numar citit de la tastatura
@@ -93,6 +108,7 @@ def main():
 def run_tests():
     test_lst_nr_negative()
     test_minim_ultima_cifra()
+    test_prim()
 
 if __name__ == '__main__':
     run_tests()
